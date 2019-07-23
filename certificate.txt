@@ -1,0 +1,26 @@
+SSL Certificates
+
+Create CA Certificate
+
+//Create Private key
+openssl genrsa -des3 -out amit.key 4096
+//Create root ca certificate
+openssl req -x509 -new -nodes -key amit.key -days 3650 -out amit.pem
+
+Note: This step is required only once. Once you trust this CA, you can cut multiple server certificates
+
+Create Server Certificate Request
+//Create server key
+openssl genrsa -out 10.145.66.204.xip.io.key 2048
+//Create certificate signing request
+openssl req -new -key 10.145.66.204.xip.io.key -out 10.145.66.204.xip.io.csr 
+
+Sign the certificate with the Root CA and key
+//Create server certificate
+openssl x509 -req -in 10.145.66.204.xip.io.csr -CA amit.pem -CAkey amit.key -CAcreateserial -out 10.145.66.204.xip.io.crt -days 1000
+
+
+
+
+Import amit.pem to browser or provide amit.pem to client request 
+

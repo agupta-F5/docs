@@ -1,0 +1,20 @@
+oc edit deployment test-bigip-controller-1 -n kube-system
+oc logs -f deploy/test-bigip-controller-1 -n kube-system |grep -i 'as3\|info\|fail\|error'
+
+
+
+Openshift Test:
+
+
+py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:cluster namespace-mode:all --include C2400352 --exclude incomplete no_regression no_openshift no_pool_mode_cluster no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr
+
+
+//Latest working
+py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:cluster namespace-mode:all skip_teardown:false --include C2400352 --exclude incomplete no_regression no_openshift no_pool_mode_cluster no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr
+
+
+oc delete serviceaccount run-as-anyid
+oc delete serviceaccount bigip-controller -n kube-system
+oc delete  clusterrole bigip-controller-role
+oc delete clusterrolebinding bigip-controllers -n kube-system
+oc delete hostsubnet bigip

@@ -1,0 +1,30 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2019-07-19T10:07:07Z
+  labels:
+    app: svc-1
+  name: svc-1
+  namespace: default
+  resourceVersion: "4900368"
+  selfLink: /api/v1/namespaces/default/services/svc-1
+  uid: f729e5d0-aa0c-11e9-b17c-fa163e967e5d
+spec:
+  clusterIP: 172.30.61.231
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: svc-1-80
+    nodePort: 30686
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  selector:
+    app: svc-1
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

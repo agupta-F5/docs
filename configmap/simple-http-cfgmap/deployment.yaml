@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-simple-http-application-01
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example-simple-http-application-01
+  template:
+    metadata:
+      labels:
+        app: example-simple-http-application-01
+    spec:
+      containers:
+      - env:
+        - name: service_name
+          value: example-simple-http-application-01
+        image: f5networksdevel/test-nginx:latest
+        imagePullPolicy: Always
+        name: example-simple-http-application-01
+        ports:
+        - containerPort: 80
+          protocol: TCP

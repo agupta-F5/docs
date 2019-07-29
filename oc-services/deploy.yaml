@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svc-1
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: svc-1
+  template:
+    metadata:
+      labels:
+        app: svc-1
+    spec:
+      containers:
+      - env:
+        - name: service_name
+          value: svc-1
+        image: f5devcentral/f5-hello-world:develop
+        imagePullPolicy: Always
+        name: svc-1
+        ports:
+        - containerPort: 80
+          protocol: TCP

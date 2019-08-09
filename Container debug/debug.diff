@@ -1,0 +1,34 @@
+diff --git a/build-tools/Dockerfile.debian.runtime b/build-tools/Dockerfile.debian.runtime
+index 506458f..59b57d2 100755
+--- a/build-tools/Dockerfile.debian.runtime
++++ b/build-tools/Dockerfile.debian.runtime
+@@ -1,3 +1,8 @@
++FROM golang AS builder
++ENV CGO_ENABLED 0
++
++RUN go get github.com/go-delve/delve/cmd/dlv
++
+ FROM python:2.7-slim-stretch
+ 
+ ENV APPPATH /app
+@@ -24,6 +29,7 @@ COPY bigip-virtual-server_v*.json $APPPATH/vendor/src/f5/schemas/
+ COPY as3-schema-3.11.0-3-cis.json $APPPATH/vendor/src/f5/schemas/
+ COPY k8s-bigip-ctlr $APPPATH/bin
+ COPY VERSION_BUILD.json $APPPATH/vendor/src/f5/
++COPY --from=builder /go/bin/dlv /app/bin
+ 
+ USER ctlr
+ 
+diff --git a/build-tools/_build-lib.sh b/build-tools/_build-lib.sh
+index 22cb69a..c78f4c8 100755
+--- a/build-tools/_build-lib.sh
++++ b/build-tools/_build-lib.sh
+@@ -70,7 +70,7 @@ go_install () {
+   # Declare seperate from assign, so failures aren't maked by local
+   local BUILDDIR
+   BUILDDIR=$(get_builddir)
+-  local GO_BUILD_FLAGS=( -v -ldflags "-extldflags \"-static\" -X main.version=${BUILD_VERSION} -X main.buildInfo=${BUILD_INFO}" )
++  local GO_BUILD_FLAGS=( -v -gcflags "all=-N -l" -ldflags "-extldflags \"-static\" -X main.version=${BUILD_VERSION} -X main.buildInfo=${BUILD_INFO}" )
+ 
+   mkdir -p "$BUILDDIR"
+   (

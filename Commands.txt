@@ -1,0 +1,2 @@
+
+oc scale deployment/k8s-bigip-ctlr -n kube-system --replicas=0

@@ -8,6 +8,12 @@
    oc get nodes -o wide
    172.16.1.16      <Node IP ()Worker IP address>
    Service Port: 31918
+    oc get svc -n kube-system
+NAME                        TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)           AGE
+k8s-bigip-ctlr-deployment   NodePort    172.30.237.60   <none>        40000:31918/TCP   26d
+kube-controllers            ClusterIP   None            <none>        8444/TCP          60d
+kubelet                     ClusterIP   None            <none>        10250/TCP         60d
+
    Bastion IP: 10.145.65.36
 
 

@@ -8,7 +8,7 @@ index 506458f..59b57d2 100755
 +
 +RUN go get github.com/go-delve/delve/cmd/dlv
 +
- FROM python:2.7-slim-stretch
+ FROM python:2.7-slim-buster
  
  ENV APPPATH /app
 @@ -24,6 +29,7 @@ COPY bigip-virtual-server_v*.json $APPPATH/vendor/src/f5/schemas/

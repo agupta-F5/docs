@@ -12,5 +12,7 @@ oc scale deployment/k8s-bigip-ctlr -n kube-system --replicas=0
 
 Activate as3 on BIGIP:  touch /var/config/rest/iapps/enable
 
+Install BIGIP Controller: https://clouddocs.f5.com/containers/v2/kubernetes/kctlr-app-install.html
+
 
 

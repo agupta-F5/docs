@@ -1,4 +1,16 @@
+Set up RBAC Authentication:
+
+    Create a Service Account for the BIG-IP Controller.
+
+    #kubectl create serviceaccount bigip-ctlr -n kube-system
+
+
+
+Commands:
 
 oc scale deployment/k8s-bigip-ctlr -n kube-system --replicas=0
 
 Activate as3 on BIGIP:  touch /var/config/rest/iapps/enable
+
+
+

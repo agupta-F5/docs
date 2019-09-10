@@ -16,6 +16,11 @@ py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controlle
 //Latest working
 py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:cluster namespace-mode:all skip_teardown:false --include C2400352 --exclude incomplete no_regression no_openshift no_pool_mode_cluster no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr
 
+Code:
+For insecure route: C2400352
+For passthrought route: test_as3_passthrough_routes
+
+
 
 oc delete serviceaccount run-as-anyid
 oc delete serviceaccount bigip-controller -n kube-system
@@ -46,3 +51,13 @@ sudo subscription-manager repos --enable='rhel-7-server-rpms' --enable='rhel-7-s
 
 
 sudo subscription-manager attach --pool=$(sudo subscription-manager list --available --matches='Red Hat OpenShift Container Platform Broker/Master Infrastructure' | grep -B 10 Virtual | grep Pool | awk '{print $3}')
+
+
+
+
+
+[root@localhost:Active:Standalone] config # tmsh create net vlan internal interfaces add { 1.1 }
+[root@localhost:Active:Standalone] config # tmsh create net self selfip.internal address 172.16.1.5/24 allow-service all vlan internal
+[root@localhost:Active:Standalone] config # tmsh create net vlan external interfaces add { 1.2 }
+[root@localhost:Active:Standalone] config # tmsh create net self selfip.external address 172.16.3.16/24 allow-service all vlan external
+[root@localhost:Active:Standalone] config # tmsh modify sys global-settings hostname bigip1

@@ -3,8 +3,12 @@ oc logs -f deploy/test-bigip-controller-1 -n kube-system |grep -i 'as3\|info\|fa
 
 
 
+Run:
+source ~/systest-common/systest-venv/bin/activate
+
 Openshift Test:
 
+git checkout as3_openshift
 
 py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:cluster namespace-mode:all --include C2400352 --exclude incomplete no_regression no_openshift no_pool_mode_cluster no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr
 
@@ -18,3 +22,27 @@ oc delete serviceaccount bigip-controller -n kube-system
 oc delete  clusterrole bigip-controller-role
 oc delete clusterrolebinding bigip-controllers -n kube-system
 oc delete hostsubnet bigip
+
+
+
+
+
+
+
+sudo subscription-manager unregister
+sudo subscription-manager clean
+sudo subscription-manager register --username=amit49g --password=Redhat@123
+
+sudo subscription-manager refresh
+
+
+sudo subscription-manager attach –-pool=8a85f99b6ae5e42a016b0c8ffa100cb5
+                                       
+
+sudo subscription-manager attach –auto
+
+sudo subscription-manager repos --enable='rhel-7-server-rpms' --enable='rhel-7-server-extras-rpms' --enable='rhel-7-server-ose-3.11-rpms' --enable='rhel-7-fast-datapath-rpms'
+
+
+
+sudo subscription-manager attach --pool=$(sudo subscription-manager list --available --matches='Red Hat OpenShift Container Platform Broker/Master Infrastructure' | grep -B 10 Virtual | grep Pool | awk '{print $3}')

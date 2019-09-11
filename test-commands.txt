@@ -18,7 +18,8 @@ py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controlle
 
 Code:
 For insecure route: C2400352
-For passthrought route: test_as3_passthrough_routes
+For passthrought route: test_as3_passthrough_routes or oss-2
+For reencrypt route: oss-3
 
 
 

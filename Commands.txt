@@ -5,6 +5,10 @@ Set up RBAC Authentication:
     #kubectl create serviceaccount bigip-ctlr -n kube-system
 
 
+In K8s environment:
+Remove: - --openshift-sdn-name=/Common/openshift_vxlan
+Change: - --manage-routes=false
+
 
 Commands:
 

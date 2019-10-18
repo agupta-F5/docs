@@ -10,12 +10,7 @@ metadata:
     app: svc-1
   name: svc-1
   namespace: default
-  resourceVersion: "4900368"
-  selfLink: /api/v1/namespaces/default/services/svc-1
-  uid: f729e5d0-aa0c-11e9-b17c-fa163e967e5d
 spec:
-  clusterIP: 172.30.61.231
-  externalTrafficPolicy: Cluster
   ports:
   - name: svc-1-80
     nodePort: 30686
@@ -26,5 +21,3 @@ spec:
     app: svc-1
   sessionAffinity: None
   type: NodePort
-status:
-  loadBalancer: {}

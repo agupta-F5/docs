@@ -21,3 +21,10 @@ kubelet                     ClusterIP   None            <none>        10250/TCP 
 
 
 3. Create Debug template in goland (port: 40000)
+
+
+
+
+Commands:
+docker ps
+docker exec -u root -it a58c6ec52fa9 /bin/bash

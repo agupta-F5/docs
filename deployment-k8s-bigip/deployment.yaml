@@ -42,6 +42,7 @@ spec:
             - --route-label=systest
             - --insecure=true
             - --agent=as3
+            - --default-ingress-ip=172.16.3.5
           command:
           - /app/bin/k8s-bigip-ctlr
           image: ssurenr/k8s-bigip-ctlr:as3-dbg

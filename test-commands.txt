@@ -31,19 +31,21 @@ oc delete hostsubnet bigip
 
 
 
-Cluster Mode test:
-------------------
+Cluster Mode test OSCP:
+-----------------------
 py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:cluster namespace-mode:all --include func  --exclude incomplete no_regression no_openshift no_pool_mode_cluster no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr &> nitin_as3validation_fullregcluster_1909_1.log
 
 
 py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:cluster namespace-mode:all --include func  --exclude no_regression no_openshift no_pool_mode_cluster no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr &> ab_support_full_reg_cluster.log
 
-Nodeport Mode:
---------------
+Nodeport Mode OSCP:
+-------------------
 py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:nodeport namespace-mode:all --include func  --exclude no_regression no_openshift no_pool_mode_nodeport no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr &> ab_support_full_reg_nodeport.log
 
 
-
+Cluster Mode in k8s env
+-----------------------
+py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:cluster namespace-mode:all skip_teardown:false --include test_as3_edge_routes_Allow_policy test_as3_passthrough_routes_NonePolicy test_as3_reencrypt_routes_AllowPolicy test_as3_a_b_deployment_passthrough  --exclude no_regression no_k8s no_pool_mode_cluster no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr
 
 
 

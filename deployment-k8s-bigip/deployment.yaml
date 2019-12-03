@@ -46,6 +46,7 @@ spec:
             - --default-ingress-ip=172.16.3.5
             - --log-as3-response=true
             - --override-as3-declaration=default/example-vs
+            - cluster
           command:
           - /app/bin/k8s-bigip-ctlr
           image: ssurenr/k8s-bigip-ctlr:as3-dbg

@@ -36,6 +36,7 @@ spec:
             - --pool-member-type=cluster
             - --openshift-sdn-name=/Common/openshift_vxlan
             - --manage-routes=true
+            - --manage-ingress=false
             - --route-vserver-addr=172.16.3.5
             - --log-level=debug
             - --namespace=default

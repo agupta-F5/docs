@@ -14,7 +14,7 @@ py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controlle
 
 
 //Latest working
-py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:cluster namespace-mode:all skip_teardown:false --include C2400352 --exclude incomplete no_regression no_openshift no_pool_mode_cluster no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr
+py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:cluster namespace-mode:all skip_teardown:false --include  test_tcp_options_in_tcp_profile  --exclude not_supported incomplete no_regression no_openshift no_pool_mode_cluster no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr/
 
 Code:
 For insecure route: C2400352
@@ -33,15 +33,11 @@ oc delete hostsubnet bigip
 
 Cluster Mode test OSCP:
 -----------------------
-py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:cluster namespace-mode:all --include func  --exclude incomplete no_regression no_openshift no_pool_mode_cluster no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr &> nitin_as3validation_fullregcluster_1909_1.log
-
-
-py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:cluster namespace-mode:all --include func  --exclude no_regression no_openshift no_pool_mode_cluster no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr &> ab_support_full_reg_cluster.log
+py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:cluster namespace-mode:all skip_teardown:false --include  func  --exclude not_supported incomplete no_regression no_openshift no_pool_mode_cluster no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr/
 
 Nodeport Mode OSCP:
 -------------------
-py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:nodeport namespace-mode:all --include func  --exclude no_regression no_openshift no_pool_mode_nodeport no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr &> ab_support_full_reg_nodeport.log
-
+py.test -svvra --symbols ~/testenv_symbols/testenv_symbols.json --vars controller-pool-mode:nodeport namespace-mode:all skip_teardown:false --include  func  --exclude not_supported incomplete no_regression no_openshift no_pool_mode_nodeport no_namespace_all --autolog-outputdir ~/test_results --autolog-session bigip_ctlr_master_os_functest_v13_0_devel-master -- tests/bigip_ctlr/
 
 Cluster Mode in k8s env
 -----------------------

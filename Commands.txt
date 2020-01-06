@@ -20,3 +20,11 @@ Install BIGIP Controller: https://clouddocs.f5.com/containers/v2/kubernetes/kctl
 
 
 
+Create new BIP-IP Instance command:
+
+Commnads to reinstall BigIP :
+ 
+$./terraform taint openstack_compute_instance_v2.BIGIP
+$./terraform apply glider-infra-openstack
+$scp -F glider-infra-openstack/ssh-config glider-infra-openstack/testenv_s* <your_bastion-ip>:~/testenv_symbols/
+

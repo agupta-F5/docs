@@ -1,0 +1,20 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: example-vs
+  namespace: default
+data:
+  template: |
+    {
+        "declaration": {
+            "test_AS3": {
+                "Shared": {
+                    "ingress_172_16_3_23_80": {
+                        "virtualAddresses": [
+                            "172.16.3.111"
+                        ]
+                    }
+                }
+            }
+        }
+    }

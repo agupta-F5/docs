@@ -1,6 +1,7 @@
 oc edit deployment test-bigip-controller-1 -n kube-system
 oc logs -f deploy/test-bigip-controller-1 -n kube-system |grep -i 'as3\|info\|fail\|error'
 
+curl --resolve foo.com:443:172.16.3.30 https://foo.com/foo2 -v or -k
 
 
 Run:

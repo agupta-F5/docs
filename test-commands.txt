@@ -74,3 +74,13 @@ sudo subscription-manager attach --pool=$(sudo subscription-manager list --avail
 [root@localhost:Active:Standalone] config # tmsh create net vlan external interfaces add { 1.2 }
 [root@localhost:Active:Standalone] config # tmsh create net self selfip.external address 172.16.3.16/24 allow-service all vlan external
 [root@localhost:Active:Standalone] config # tmsh modify sys global-settings hostname bigip1
+
+
+python virtual envirnment create
+------------------
+#deactivate
+#rm -rf systest-venv
+#python3 -m venv systest-venv
+#source ~/systest-common/systest-venv/bin/activate
+#python --version
+#pip3 install -r conf/requirements.txt

@@ -83,4 +83,5 @@ python virtual envirnment create
 #python3 -m venv systest-venv
 #source ~/systest-common/systest-venv/bin/activate
 #python --version
+#cd system-common
 #pip3 install -r conf/requirements.txt

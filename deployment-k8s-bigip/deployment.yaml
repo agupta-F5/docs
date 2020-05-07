@@ -47,10 +47,12 @@ spec:
             - --default-ingress-ip=172.16.3.5
             - --log-as3-response=true
             - --override-as3-declaration=default/example-vs
+            - --userdefined-as3-declarationdefault/example-as3-cfgmap
             - --as3-post-delay=10
             - --tls-version=1.2
             - --cipher-group=/Common/f5-ecc
             - --ciphers=DES
+            - --custom-resource-mode=false
             - cluster
           command:
           - /app/bin/k8s-bigip-ctlr

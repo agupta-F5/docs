@@ -85,3 +85,10 @@ python virtual envirnment create
 #python --version
 #cd system-common
 #pip3 install -r conf/requirements.txt
+
+
+
+BIGIP VPN Tunnel error fix: 
+---------------------------
+ps alx | grep svpn
+kill -9 <pid>

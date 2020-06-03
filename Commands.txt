@@ -39,3 +39,11 @@ Fetch any PR from GIT Hub
 ---------------------------
 #git fetch ${PUBLIC_REPO} pull/${PR}/head:pr_${PR}_build
 Example: #git fetch https://github.com/F5Networks/k8s-bigip-ctlr.git pull/1098/head:pr_1098_build
+
+
+Delete BigIP from glider terraform
+----------------------------------
+./terraform taint openstack_compute_instance_v2.BIGIP
+make functest-setup 
+
+

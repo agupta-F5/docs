@@ -51,6 +51,7 @@ spec:
         - --insecure=true
         - --agent=as3
         - --http-listen-address=0.0.0.0:8080
+        - --custom-resource-mode=false
         command:
         - /app/bin/dlv
         - --listen=:40000
@@ -59,7 +60,7 @@ spec:
         - --accept-multiclient
         - exec
         - /app/bin/k8s-bigip-ctlr
-        image: amit49g/as3:route-debug
+        image: amit49g/k8s-bigip-ctlr:ppp
         imagePullPolicy: Always
         name: k8s-bigip-ctlr
         ports:
@@ -75,6 +76,6 @@ spec:
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
-      serviceAccount: bigip-ctlr
-      serviceAccountName: bigip-ctlr
+      serviceAccount: bigip-controller
+      serviceAccountName: bigip-controller
       terminationGracePeriodSeconds: 30

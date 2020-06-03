@@ -78,10 +78,20 @@ sudo subscription-manager attach --pool=$(sudo subscription-manager list --avail
 
 python virtual envirnment create
 ------------------
-#deactivate
-#rm -rf systest-venv
-#python3 -m venv systest-venv
-#source ~/systest-common/systest-venv/bin/activate
-#python --version
-#cd system-common
-#pip3 install -r conf/requirements.txt
+$deactivate
+$cd system-common
+$rm -rf systest-venv
+$python3.8 -m venv systest-venv
+$source ~/systest-common/systest-venv/bin/activate
+//Create Virtual env and then install all packages on venv
+$pip3 install -r conf/requirements.txt
+
+
+
+git config --global http.sslVerify false
+
+
+BIGIP VPN Tunnel error fix: 
+---------------------------
+ps alx | grep svpn
+kill -9 <pid>

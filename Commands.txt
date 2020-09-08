@@ -28,6 +28,9 @@ $./terraform taint openstack_compute_instance_v2.BIGIP
 $./terraform apply glider-infra-openstack
 $scp -F glider-infra-openstack/ssh-config glider-infra-openstack/testenv_s* <your_bastion-ip>:~/testenv_symbols/
 
+Destroy:
+$./terraform destroy glider-infra-openstack
+
 
 Delete route entry:
 

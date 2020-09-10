@@ -87,7 +87,7 @@ $source ~/systest-common/systest-venv/bin/activate
 $pip3 install -r conf/requirements.txt
 
 
-
+If we get error:  Peer's Certificate issuer is not recognized.
 git config --global http.sslVerify false
 
 

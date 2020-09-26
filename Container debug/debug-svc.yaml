@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: k8s-bigip-ctlr
+  name: cis-dbg-svc
+  namespace: kube-system
+spec:
+  ports:
+    - name: port1
+      port: 40000
+  selector:
+    app: k8s-bigip-ctlr
+  type: NodePort

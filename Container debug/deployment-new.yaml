@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
@@ -58,6 +58,7 @@ spec:
         - --headless=true
         - --api-version=2
         - --accept-multiclient
+        - --check-go-version=false
         - exec
         - /app/bin/k8s-bigip-ctlr
         image: amit49g/k8s-bigip-ctlr:ppp

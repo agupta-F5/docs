@@ -28,6 +28,18 @@ $./terraform taint openstack_compute_instance_v2.BIGIP
 $./terraform apply glider-infra-openstack
 $scp -F glider-infra-openstack/ssh-config glider-infra-openstack/testenv_s* <your_bastion-ip>:~/testenv_symbols/
 
+
+To install:
+"
+./terraform init glider-infra-openstack/
+
+./terraform plan glider-infra-openstack/
+
+./terraform apply glider-infra-openstack/
+"
+
+
+
 Destroy:
 $./terraform destroy glider-infra-openstack
 
@@ -48,5 +60,23 @@ Delete BigIP from glider terraform
 ----------------------------------
 ./terraform taint openstack_compute_instance_v2.BIGIP
 make functest-setup 
+
+
+Change BIG-IP Version
+----------------------
+->Chnage BIG-IP versiob in teraaform.tfvars file :version  14.1 to 13.1 or ...
+
+    ./terraform taint openstack_compute_instance_v2.BIGIP
+
+    ./terraform apply glider-infra-openstack/
+
+    scp -F glider-infra-openstack/ssh-config glider-infra-openstack/testenv_s* <Bastion IP>:~/
+
+
+
+OC command lagging issue:
+------------------------
+login as centos
+#chown -R centos:centos ~/.kube
 
 

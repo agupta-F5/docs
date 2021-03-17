@@ -80,3 +80,19 @@ login as centos
 #chown -R centos:centos ~/.kube
 
 
+Git hard reset:
+---------------
+git fetch --all
+git reset --hard origin/master
+
+
+OCP 4.x install system-Common
+
+git clone git@gitswarm.f5net.com:cc/systest-common.git
+sudo chown -R centos:centos ~/.pip/
+cp systest-common/conf/pip.conf ~/.pip/
+python3.8 -m venv ~/systest-common/systest-venv
+source ~/systest-common/systest-venv/bin/activate
+pip3.8 install -r ~/systest-common/conf/requirements.txt
+
+

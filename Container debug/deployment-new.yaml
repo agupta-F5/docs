@@ -43,7 +43,7 @@ spec:
         - --bigip-partition=kubernetes
         - --pool-member-type=cluster
         - --openshift-sdn-name=/Common/openshift_vxlan
-        - --manage-routes=true
+        - --manage-routes=false
         - --route-vserver-addr=172.16.3.5
         - --log-level=debug
         - --namespace=default
@@ -51,7 +51,10 @@ spec:
         - --insecure=true
         - --agent=as3
         - --http-listen-address=0.0.0.0:8080
-        - --custom-resource-mode=false
+        - --custom-resource-mode=true
+        - --ipam=true
+        - --as3-validation=true
+        - --log-as3-response=true
         command:
         - /app/bin/dlv
         - --listen=:40000

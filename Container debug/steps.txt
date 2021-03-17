@@ -4,7 +4,7 @@
 
 
 2. Create ssh tunnel
- #ssh -L 40000:172.16.1.16:31918 root@10.145.65.36
+ #ssh -L 40000:172.16.1.16:32581 root@10.145.65.36
    oc get nodes -o wide
    172.16.1.16      <Node IP ()Worker IP address>
    Service Port: 31918

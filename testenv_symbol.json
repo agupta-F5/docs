@@ -1,0 +1,4 @@
+{
+    "ipam_controller_img": "amit49g/f5-ipam-ctlr:fic_1",
+    "bigip_ext_cidr": "172.16.3.0/24"
+}

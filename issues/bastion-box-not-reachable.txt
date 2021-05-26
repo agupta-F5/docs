@@ -1,0 +1,31 @@
+​
+    you need to login to box from another lab box
+
+    and del the default route
+
+-----------------------------------------------------
+    
+[root@brief-ox-bastion ~]# ip route
+default via 172.16.1.1 dev ens192  proto static  metric 100
+default via 172.16.3.1 dev ens224  proto static  metric 101
+default via 10.145.127.254 dev ens160  proto static  metric 102
+10.145.64.0/18 dev ens160  proto kernel  scope link  src 10.145.77.117
+10.145.64.0/18 dev ens160  proto kernel  scope link  src 10.145.77.117  metric 100
+169.254.169.254 via 172.16.3.2 dev ens224  proto dhcp  metric 100
+172.16.1.0/24 dev ens192  proto kernel  scope link  src 172.16.1.112  metric 100
+172.16.3.0/24 dev ens224  proto kernel  scope link  src 172.16.3.112
+172.16.3.0/24 dev ens224  proto kernel  scope link  src 172.16.3.112  metric 100
+[root@brief-ox-bastion ~]# ip route del default via 172.16.1.1 dev ens192  proto static  metric 100
+[root@brief-ox-bastion ~]# ip route del default via 172.16.3.1 dev ens224  proto static  metric 101
+[root@brief-ox-bastion ~]# ip route
+default via 10.145.127.254 dev ens160  proto static  metric 102
+10.145.64.0/18 dev ens160  proto kernel  scope link  src 10.145.77.117
+10.145.64.0/18 dev ens160  proto kernel  scope link  src 10.145.77.117  metric 100
+169.254.169.254 via 172.16.3.2 dev ens224  proto dhcp  metric 100
+172.16.1.0/24 dev ens192  proto kernel  scope link  src 172.16.1.112  metric 100
+172.16.3.0/24 dev ens224  proto kernel  scope link  src 172.16.3.112
+172.16.3.0/24 dev ens224  proto kernel  scope link  src 172.16.3.112  metric 100
+[root@brief-ox-bastion ~]# exit
+logout
+
+

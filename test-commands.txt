@@ -95,3 +95,17 @@ BIGIP VPN Tunnel error fix:
 ---------------------------
 ps alx | grep svpn
 kill -9 <pid>
+
+
+----------------------------------------------------------
+Create service account per namespace. and add it to policy.
+sa.yaml
+------------------------
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: run-as-anyid
+  namespace: n1
+------------------------
+$oc create ns n1
+$oc adm policy add-scc-to-user anyuid -z run-as-anyid -n n1

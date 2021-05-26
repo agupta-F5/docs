@@ -1,0 +1,6 @@
+
+
+Use go get with commit id:
+
+
+#go get github.com/F5Networks/f5-ipam-controller@329c86830f37a42905b78cfc79f5a56b07de312f

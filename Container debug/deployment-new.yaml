@@ -40,7 +40,7 @@ spec:
         - --bigip-username=admin
         - --bigip-password=admin
         - --bigip-url=10.145.68.107
-        - --bigip-partition=kubernetes
+        - --bigip-partition=test
         - --pool-member-type=cluster
         - --openshift-sdn-name=/Common/openshift_vxlan
         - --manage-routes=false
@@ -55,6 +55,9 @@ spec:
         - --ipam=true
         - --as3-validation=true
         - --log-as3-response=true
+        - --verify-interval="2000"
+        - --node-poll-interval="1000"
+        - --disable-teems=true
         command:
         - /app/bin/dlv
         - --listen=:40000
@@ -64,7 +67,7 @@ spec:
         - --check-go-version=false
         - exec
         - /app/bin/k8s-bigip-ctlr
-        image: amit49g/k8s-bigip-ctlr:ppp
+        image: amit49g/k8s-bigip-ctlr:debug
         imagePullPolicy: Always
         name: k8s-bigip-ctlr
         ports:

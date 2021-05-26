@@ -12,6 +12,8 @@ Change: - --manage-routes=false
 
 Commands:
 
+oc get events -n <namespace>
+
 oc scale deployment/k8s-bigip-ctlr -n kube-system --replicas=0
 
 Activate as3 on BIGIP:  touch /var/config/rest/iapps/enable

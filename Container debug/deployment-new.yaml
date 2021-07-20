@@ -58,6 +58,8 @@ spec:
         - --verify-interval="2000"
         - --node-poll-interval="1000"
         - --disable-teems=true
+        - --flannel-name=/test/vxlan-tunnel-mp
+        - --periodic-sync-interval=60
         command:
         - /app/bin/dlv
         - --listen=:40000

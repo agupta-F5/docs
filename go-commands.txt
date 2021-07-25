@@ -1,0 +1,15 @@
+
+go get github.com/F5Networks/f5-ipam-controller@0382461fdb1bf3fcd06f1899705fbb7824ce8c54
+go mod vendor
+go mod tidy
+
+
+go clean -cache 
+go clean -testcache 
+GOCACHE=off go test
+GOFLAGS="-count=1" go test
+
+
+go test -v -run  appManager_test.go "configures virtual servers via Ingress"
+
+

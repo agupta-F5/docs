@@ -7,3 +7,10 @@
     "bigip_ext_cidr": "10.8.0.0/14"
 
 }
+{
+    "ipam_controller_img": "quay.io/f5networks/f5-ipam-controller-devel:42c4527263d6e605944ef7f50a98323a8b7ee722",
+    "infoblox_mgmt_ip": "10.145.67.27",
+    "bigip_ext_cidr": "10.8.0.0/14",
+    "infoblox_password": "infoblox",
+    "infoblox_username": "admin",
+}

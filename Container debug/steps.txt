@@ -27,8 +27,8 @@ kubelet                     ClusterIP   None            <none>        10250/TCP 
 
 Commands:
 docker ps
-docker exec -u root -it a58c6ec52fa9 /bin/bash
+docker exec -u root -it a58c6ec52fa9 -- /bin/bash
 
 
 Go inside pod:
-oc -n kube-system exec -it pod/test-bigip-controller-1-7df44f6dcf-s64gc /bin/bash
+oc -n kube-system exec -it pod/test-bigip-controller-1-7df44f6dcf-s64gc -- /bin/bash

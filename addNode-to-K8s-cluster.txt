@@ -1,0 +1,28 @@
+
+Adding Node to K8s
+-------------------
+On Master node run:
+kubeadm token create --print-join-command
+
+
+
+Login to each node as root: 
+update Host: vi /etc/hosts
+
+kubeadm reset
+
+restart (reboot)
+
+kubeadm join 10.4.1.224:6443 --token whrvzg.xdlv91oed0bkhrhi     --discovery-token-ca-cert-hash sha256:a88c2d335ccbffb64a894e130fe5edfadabcd74673e983b1141bdc7446f5523b
+
+iptables -F
+
+
+
+Update Host:
+
+10.4.1.205 custom-worker-3-5 custom-worker-3-5.novalocal custom-worker-3-5.pdsea.f5net.com
+10.4.3.44 custom-worker-3-4 custom-worker-3-4.novalocal custom-worker-3-4.pdsea.f5net.com
+10.4.0.222 custom-worker-3-3 custom-worker-3-3.novalocal custom-worker-3-3.pdsea.f5net.com
+10.4.1.243 custom-worker-3-2 custom-worker-3-2.novalocal custom-worker-3-2.pdsea.f5net.com
+10.4.0.142 custom-worker-3-1 custom-worker-3-1.novalocal custom-worker-3-1.pdsea.f5net.com

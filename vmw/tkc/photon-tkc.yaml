@@ -1,0 +1,36 @@
+apiVersion: run.tanzu.vmware.com/v1alpha2
+kind: TanzuKubernetesCluster
+metadata:
+  name: guestcluster1
+  namespace: gctest
+spec:
+  distribution:
+    fullVersion: v1.20.12+vmware.1-tkg.1.b9a42f3
+    version: v1.20.12+vmware.1-tkg.1.b9a42f3
+  settings:
+    network:
+      cni:
+        name: calico
+      pods:
+        cidrBlocks:
+          - 193.0.0.0/16
+      serviceDomain: managedcluster1.local
+      services:
+        cidrBlocks:
+          - 198.201.0.0/16
+  topology:
+    controlPlane:
+      replicas: 1
+      storageClass: wcpglobalstorageprofile
+      tkr:
+        reference:
+          name: v1.20.12---vmware.1-tkg.1.b9a42f3
+      vmClass: best-effort-xsmall
+    nodePools:
+      - name: workers
+        replicas: 2
+        storageClass: wcpglobalstorageprofile
+        tkr:
+          reference:
+            name: v1.20.12---vmware.1-tkg.1.b9a42f3
+        vmClass: best-effort-xsmall

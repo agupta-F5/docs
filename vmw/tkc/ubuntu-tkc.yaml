@@ -1,0 +1,41 @@
+apiVersion: run.tanzu.vmware.com/v1alpha3
+kind: TanzuKubernetesCluster
+metadata:
+  name: tkc-minimal
+  annotations:
+    run.tanzu.vmware.com/resolve-os-image: os-name=ubuntu
+spec:
+  settings:
+    network:
+      cni:
+        name: antrea
+      pods:
+        cidrBlocks:
+          - 193.0.0.0/16
+      serviceDomain: managedcluster1.local
+      services:
+        cidrBlocks:
+          - 198.201.0.0/16
+  topology:
+    controlPlane:
+      replicas: 1
+      storageClass: wcpglobal-storage-profile
+      tkr:
+        reference:
+          name: v1.22.8---vmware.1-tkg.2-zshippable
+      vmClass: best-effort-xsmall
+    nodePools:
+      - name: worker
+        replicas: 1
+        storageClass: wcpglobal-storage-profile
+        tkr:
+          reference:
+            name: v1.22.8---vmware.1-tkg.2-zshippable
+        vmClass: best-effort-xsmall
+      - name: nodepool
+        replicas: 1
+        storageClass: wcpglobal-storage-profile
+        tkr:
+          reference:
+            name: v1.22.8---vmware.1-tkg.2-zshippable
+        vmClass: best-effort-xsmall

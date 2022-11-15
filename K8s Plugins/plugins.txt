@@ -1,0 +1,50 @@
+
+All Plugin list: https://krew.sigs.k8s.io/plugins/
+
+K8s Plugins
+
+https://github.com/keisku/kubectl-explore
+
+kubectl krew install explore
+
+
+
+https://github.com/knight42/kubectl-blame:
+
+kubectl krew install blame
+
+
+| k neat
+
+
+https://blog.kubecost.com/blog/kubectl-cost-kubernetes-monitoring-cli/
+https://github.com/kubecost/kubectl-cost
+
+kubectl cost namespace | node
+
+
+
+
+https://github.com/ahmetb/kubectl-tree
+https://ahmet.im/blog/kubectl-tree/
+https://krew.sigs.k8s.io/docs/user-guide/setup/install/
+
+kubectl tree pods
+
+
+https://github.com/tohjustin/kube-lineage
+https://tohjustin.github.io/posts/2021-11-01-kube-lineage/
+
+kubectl lineage
+
+
+https://github.com/chenjiandongx/kubectl-images
+kubectl image
+
+
+https://k9scli.io/
+k9s
+
+
+https://github.com/caiobegotti/Pod-Dive
+kubectl pod-dive
